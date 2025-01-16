@@ -8,15 +8,26 @@ import { Card } from 'primereact/card';
 
 import Keycloak from 'keycloak-js';
 
+
 let initOptions = {
-  url: 'http://localhost:8080/',
-  realm: 'master',
-  clientId: 'react-client',
+  url: 'https://idpstaging.wizama.com',
+  realm: 'WizamaRealm',
+  clientId: 'wizastore-fe',
+  onLoad: 'login-required', // check-sso | login-required
+
+  //silentCheckSsoRedirectUri: (window.location.origin + "/silent-check-sso.html")
+}
+
+/*
+let initOptions = {
+  url: 'http://localhost:8080/', 
+  realm: 'WizamaRealm',
+  clientId: 'WizamaStore',
   onLoad: 'check-sso', // check-sso | login-required
   KeycloakResponseType: 'code',
 
   // silentCheckSsoRedirectUri: (window.location.origin + "/silent-check-sso.html")
-}
+}*/
 
 let kc = new Keycloak(initOptions);
 
@@ -74,6 +85,7 @@ function App() {
         <h2>Is authenticated: {kc.authenticated}</h2>
       </div>
         </div> */}
+
 
 
       <div className='grid'>
